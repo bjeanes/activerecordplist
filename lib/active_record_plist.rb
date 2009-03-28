@@ -3,7 +3,7 @@ module ActiveRecordPlist
     include Plist::Emit
     def to_plist_node(options = {})
       Plist::Emit.dump({
-        self.class.to_s.underscore => self.attributes.reject{ |key,value| value.blank? }
+        self.class.to_s => self.attributes.reject{ |key,value| value.blank? }
       }, {:envelope => false})
     end
   end
